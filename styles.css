@@ -1,0 +1,172 @@
+:root {
+  --buttonWidth: 200px;
+  --buttonHeight: 100px;
+  --buttonGap: 50px;
+  --buttonQuantity: 6;
+  --widthPerButton: (var(--buttonWidth) + var(--buttonGap));
+}
+
+* {
+  margin: 0;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding-top: 160px;
+  padding-left: 0%;
+  width: 100vw;
+  height: calc(100vh - 160px);
+}
+
+html {
+  overflow: hidden;
+  background-image: url("media/luna.jpg");
+  background-size: cover;
+}
+
+.static-container {
+  position: absolute;
+  display: flex;
+  height: 160px;
+  width: 100%;
+  background: rgba(0, 0, 255, 0.5);
+  overflow: hidden;
+  gap: var(--buttonGap);
+}
+
+.flex-container-container {
+  position: absolute;
+  display: flex;
+  height: 160px;
+  width: 100%;
+  background: rgba(0, 0, 255, 0.5);
+  overflow: hidden;
+}
+
+.flex-container {
+  animation: sideWise 30s linear infinite;
+  display: flex;
+  width: calc(2 * var(--buttonQuantity) * var(--widthPerButton));
+  gap: var(--buttonGap);
+}
+.flex-container:hover {
+  animation-play-state: paused;
+}
+
+.moving-object {
+  background-color: red;
+  height: var(--buttonHeight);
+  width: var(--buttonWidth);
+  text-align: center;
+  align-content: center;
+  cursor: pointer;
+  border-radius: 5%;
+  transition: all 2s ease-in-out;
+}
+.moving-object:hover {
+  font-size: 32px;
+}
+
+@keyframes sideWise {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      calc((-1 * var(--buttonQuantity)) * var(--widthPerButton))
+    );
+  }
+}
+
+.sora {
+  position: absolute;
+  bottom: 0;
+  left: calc(2 * var(--buttonQuantity) * var(--widthPerButton));
+  width: 36px;
+  height: 83px;
+  background: url("media/sora-new.png");
+
+  animation: walk 1.5s steps(8) infinite, sideWise-sprite 60s linear infinite;
+}
+
+@keyframes sideWise-sprite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      calc(-2 * var(--buttonQuantity) * var(--widthPerButton))
+    );
+  }
+}
+
+@keyframes walk {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -288px 0;
+  }
+}
+
+@keyframes select {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 100% -581px;
+  }
+}
+
+.text-field {
+  background-color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: black;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+article {
+  height: fit-content;
+  width: fit-content;
+  max-width: 70%;
+  position: absolute;
+}
+
+.toggle {
+  z-index: 9998;
+  position: fixed;
+  height: 160px;
+  width: 25px;
+  background-color: grey;
+  cursor: pointer;
+  display: flex;
+  justify-items: center;
+  align-content: center;
+  transition: 0.3s;
+}
+
+.slider {
+  background-color: green;
+  text-orientation: upright;
+  writing-mode: vertical-lr;
+  text-align: center;
+  width: 25px;
+  height: 80px;
+}
+
+.no-animations .slider {
+  top: 0%;
+  transform: translateY(100%);
+  transition: 0.3s;
+  background-color: red;
+}
+
+.animations .slider {
+  top: 100%;
+  transform: translateY(0%);
+  transition: 0.3s;
+}

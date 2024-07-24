@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>MvdM</title>
+  </head>
+  <script>
+    window.onload = () => firstLoad();
+  </script>
+
+  <body>
+    <div class="toggle" id="animation-toggle" onclick="toggle()">
+      <div class="slider" id="animation-slider">on</div>
+    </div>
+    <header id="top-header" class="flex-container-container">
+      <div id="carousel" class="flex-container">
+        <div id="about-button" class="moving-object">About</div>
+        <div id="animations" class="moving-object">Links</div>
+        <div id="contact-button" class="moving-object">Contact</div>
+        <div id="solo" class="moving-object">Solo Projects</div>
+        <div id="team" class="moving-object">Team Projects</div>
+        <div id="home" class="moving-object">Home</div>
+      </div>
+      <div id="sora" class="sora"></div>
+      <div id="sora2" class="sora"></div>
+    </header>
+    <main id="mainContent"></main>
+    <footer></footer>
+
+    <script src="./script/functions.js"></script>
+  </body>
+</html>
