@@ -17,6 +17,7 @@ main {
   padding-left: 0%;
   width: 100vw;
   height: calc(100vh - 160px);
+  overflow: hidden;
 }
 
 html {
@@ -28,11 +29,14 @@ html {
 .static-container {
   position: absolute;
   display: flex;
+  justify-content: space-between;
   height: 160px;
-  width: 100%;
+  width: calc(100% - 40px);
   background: rgba(0, 0, 255, 0.5);
   overflow: hidden;
-  gap: var(--buttonGap);
+  padding-left: 30px;
+  padding-right: 10px;
+  gap: 5px;
 }
 
 .flex-container-container {

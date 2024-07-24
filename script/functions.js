@@ -76,7 +76,6 @@ function firstLoad() {
             easing: "steps(7)",
           }
         );
-        console.log(event.target);
 
         event.target.animate(
           [
@@ -93,6 +92,10 @@ function firstLoad() {
         setTimeout(showContact, 1000);
       };
     }
+
+    if (d.id === "links-button" || d.id === "links-button1") {
+      d.onclick = () => showLinks();
+    }
   });
 
   movers.onmouseenter = function (e) {
@@ -106,7 +109,6 @@ function firstLoad() {
     sora2Div.style.animationPlayState = "paused";
     const x = e.clientX;
     const soraX = soraDiv.getBoundingClientRect().x;
-    console.log(x + ", " + soraX);
   };
   movers.onmouseleave = function () {
     const headers = document.getElementById("top-header");
@@ -119,17 +121,37 @@ function firstLoad() {
     sora2Div.style.animationPlayState = "running";
   };
 
-  //   alternateHeader = createAlternateHeader();
+  movers.ontouchcancel = function () {
+    const headers = document.getElementById("top-header");
+    headers.childNodes.forEach((sprite) => {
+      if (sprite.className == "sora") {
+        sprite.style.animationPlayState = "running";
+      }
+    });
+    soraDiv.style.animationPlayState = "running";
+    sora2Div.style.animationPlayState = "running";
+  };
 }
 
 function createAlternateHeader() {
   let newHeader = document.createElement("header");
   newHeader.classList.add("static-container");
   movers.childNodes.forEach((child) => {
-    console.log(child.id);
     if (child.id && !child.id.includes("1")) {
       const newCopy = child.cloneNode(true);
       newHeader.appendChild(newCopy);
+
+      if (newCopy.id === "about-button") {
+        newCopy.onclick = () => showAbout();
+      }
+
+      if (newCopy.id === "contact-button") {
+        newCopy.onclick = () => showContact();
+      }
+
+      if (newCopy.id === "links-button") {
+        newCopy.onclick = () => showLinks();
+      }
     }
   });
   return newHeader;
@@ -240,19 +262,59 @@ function showContact() {
   let contactTitle = document.createElement("h1");
   contactTitle.textContent = "Contact";
 
-  let contactContext = document.createElement("div");
+  let mailContext = document.createElement("div");
 
-  const text = document.createTextNode("mail: ");
-  contactContext.appendChild(text);
+  const mailText = document.createTextNode("mail: ");
+  mailContext.appendChild(mailText);
 
   let emailContact = document.createElement("a");
   const emailaddress = document.createTextNode("michelvdm@gmail.com");
   emailContact.href = "mailto:michelvdm@gmail.com";
   emailContact.appendChild(emailaddress);
-  contactContext.appendChild(emailContact);
+  mailContext.appendChild(emailContact);
 
   contactDiv.appendChild(contactTitle);
-  contactDiv.appendChild(contactContext);
+  contactDiv.appendChild(mailContext);
 
   changeMainTo(contactDiv, "contact");
+}
+
+function showLinks() {
+  if (activePage == "links") {
+    return;
+  }
+
+  let linksDiv = document.createElement("article");
+  linksDiv.id = "links";
+  linksDiv.className = "text-field";
+
+  let linksTitle = document.createElement("h1");
+  linksTitle.textContent = "Links";
+
+  let githubContext = document.createElement("div");
+
+  const githubText = document.createTextNode("github: ");
+  githubContext.appendChild(githubText);
+
+  let githubLink = document.createElement("a");
+  githubLink.href = "https://github.com/Michelvdm83";
+  githubLink.target = "blank";
+  githubLink.innerText = "Michelvdm83";
+  githubContext.appendChild(githubLink);
+  linksDiv.appendChild(githubContext);
+
+  let linkedinContext = document.createElement("div");
+
+  const linkedinText = document.createTextNode("linkedin: ");
+  linkedinContext.appendChild(linkedinText);
+
+  let linkedinLink = document.createElement("a");
+  linkedinLink.href =
+    "https://www.linkedin.com/in/michel-van-der-mark-083314105/";
+  linkedinLink.target = "blank";
+  linkedinLink.innerText = "Michel van der Mark";
+  linkedinContext.appendChild(linkedinLink);
+  linksDiv.appendChild(linkedinContext);
+
+  changeMainTo(linksDiv, "links");
 }
