@@ -131,6 +131,7 @@ function firstLoad() {
     soraDiv.style.animationPlayState = "running";
     sora2Div.style.animationPlayState = "running";
   };
+  movers.style.animationPlayState = "running";
 }
 
 function createAlternateHeader() {
