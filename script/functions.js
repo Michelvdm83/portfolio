@@ -121,7 +121,7 @@ function firstLoad() {
     sora2Div.style.animationPlayState = "running";
   };
 
-  movers.ontouchcancel = function () {
+  movers.ontouchend = function () {
     const headers = document.getElementById("top-header");
     headers.childNodes.forEach((sprite) => {
       if (sprite.className == "sora") {
