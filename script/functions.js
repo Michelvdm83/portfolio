@@ -44,7 +44,6 @@ function firstLoad() {
             easing: "steps(7)",
           }
         );
-        console.log(event.target);
 
         event.target.animate(
           [
@@ -130,8 +129,9 @@ function firstLoad() {
     });
     soraDiv.style.animationPlayState = "running";
     sora2Div.style.animationPlayState = "running";
+
+    movers.style.animationPlayState = "running";
   };
-  movers.style.animationPlayState = "running";
 }
 
 function createAlternateHeader() {
