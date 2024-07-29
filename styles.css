@@ -94,6 +94,29 @@ html {
   animation: walk 1.5s steps(8) infinite, sideWise-sprite 60s linear infinite;
 }
 
+.sora-test {
+  position: absolute;
+  top: 160px;
+  left: calc(var(--buttonQuantity) * var(--widthPerButton));
+  width: 36px;
+  height: 83px;
+  background: url("media/sora-new.png");
+
+  animation: walk 1.5s steps(8) infinite,
+    sideWise-sprite-test 30s linear infinite;
+}
+
+@keyframes sideWise-sprite-test {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      calc(-1 * var(--buttonQuantity) * var(--widthPerButton))
+    );
+  }
+}
+
 @keyframes sideWise-sprite {
   0% {
     transform: translateX(0);
@@ -154,23 +177,24 @@ article {
 }
 
 .slider {
-  background-color: green;
   text-orientation: upright;
   writing-mode: vertical-lr;
   text-align: center;
   width: 25px;
   height: 80px;
+  background-color: green;
 }
 
 .no-animations .slider {
   top: 0%;
   transform: translateY(100%);
-  transition: 0.3s;
+  transition: 0.5s;
   background-color: red;
 }
 
 .animations .slider {
   top: 100%;
   transform: translateY(0%);
-  transition: 0.3s;
+  transition: 0.5s;
+  background-color: green;
 }
