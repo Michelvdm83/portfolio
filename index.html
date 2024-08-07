@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>MvdM</title>
-  </head>
-  <script>
-    window.onload = () => firstLoad();
-  </script>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <title>MvdM</title>
+    </head>
+    <script>
+        window.onload = () => firstLoad();
+    </script>
 
-  <body>
-    <div class="toggle" id="animation-toggle" onclick="toggle()">
-      <div class="slider" id="animation-slider">on</div>
-    </div>
-    <header id="top-header" class="flex-container-container">
-      <div id="carousel" class="flex-container">
-        <div id="about-button" class="moving-object">About</div>
-        <div id="links-button" class="moving-object">Links</div>
-        <div id="contact-button" class="moving-object">Contact</div>
-        <div id="solo" class="moving-object">Solo Projects</div>
-        <div id="team" class="moving-object">Team Projects</div>
-        <div id="home" class="moving-object">Home</div>
-      </div>
-      <div id="sora" class="sora"></div>
-      <div id="sora2" class="sora"></div>
-      <!-- <div id="sora-about" class="sora"></div>
+    <body>
+        <div class="toggle" id="animation-toggle" onclick="toggle()">
+            <div class="slider" id="animation-slider">on</div>
+        </div>
+        <header id="top-header" class="flex-container-container">
+            <div id="carousel" class="flex-container">
+                <div id="about-button" class="moving-object">About</div>
+                <div id="links-button" class="moving-object">Links</div>
+                <div id="contact-button" class="moving-object">Contact</div>
+                <div id="solo" class="moving-object">Solo Projects</div>
+                <div id="team" class="moving-object">Team Projects</div>
+                <div id="home-container" class="moving-container">
+                    <div id="home" class="moving-object">Home</div>
+                    <div id="sora3" class="sora-test2"></div>
+                </div>
+            </div>
+            <div id="sora" class="sora"></div>
+            <div id="sora2" class="sora"></div>
+            <!-- <div id="sora-about" class="sora"></div>
       <div id="sora-contact" class="sora"></div> -->
-    </header>
-    <div id="sora-test" class="sora-test"></div>
-    <main id="mainContent"></main>
-    <footer></footer>
+        </header>
+        <!-- <div id="sora-test" class="sora-test"></div> -->
+        <main>
+            <div id="mainContent" class="main-div">
+                <div class="playstation grid-item"></div>
+                <div class="chakra grid-item"></div>
+                <div class="programming grid-item"></div>
+            </div>
+        </main>
 
-    <script src="./script/pages.js"></script>
-    <script src="./script/functions.js"></script>
-  </body>
+        <script src="./script/pages.js"></script>
+        <script src="./script/functions.js"></script>
+    </body>
 </html>

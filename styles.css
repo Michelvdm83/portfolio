@@ -1,200 +1,264 @@
 :root {
-  --buttonWidth: 200px;
-  --buttonHeight: 100px;
-  --buttonGap: 50px;
-  --buttonQuantity: 6;
-  --widthPerButton: (var(--buttonWidth) + var(--buttonGap));
+    --buttonWidth: 200px;
+    --buttonHeight: 100px;
+    --buttonGap: 50px;
+    --buttonQuantity: 6;
+    --widthPerButton: (var(--buttonWidth) + var(--buttonGap));
 }
 
 * {
-  margin: 0;
+    margin: 0;
 }
+
+/* main {
+    display: flex;
+    justify-content: center;
+    padding-top: 160px;
+    padding-left: 0%;
+    width: 100vw;
+    height: calc(100vh - 160px);
+    overflow: hidden;
+} */
 
 main {
-  display: flex;
-  justify-content: center;
-  padding-top: 160px;
-  padding-left: 0%;
-  width: 100vw;
-  height: calc(100vh - 160px);
-  overflow: hidden;
+    padding-top: 160px;
+    padding-left: 0%;
+    width: 100vw;
 }
 
-html {
-  overflow: hidden;
-  background-image: url("media/luna.jpg");
-  background-size: cover;
+.main-div {
+    background-color: rgb(20, 30, 221);
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    padding-left: 0%;
+    width: 100vw;
+    height: calc(100vh - 160px);
+    gap: 5px;
 }
 
-.static-container {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  height: 160px;
-  width: calc(100% - 40px);
-  background: rgba(0, 0, 255, 0.5);
-  overflow: hidden;
-  padding-left: 30px;
-  padding-right: 10px;
-  gap: 5px;
+.grid-item {
+    border: 2px outset white;
 }
 
-.flex-container-container {
-  position: absolute;
-  display: flex;
-  height: 160px;
-  width: 100%;
-  background: rgba(0, 0, 255, 0.5);
-  overflow: hidden;
+.playstation {
+    background: center / contain no-repeat url("media/controllerP.png");
+    grid-row: 1;
+    grid-column: 2 / 4;
 }
 
-.flex-container {
-  animation: sideWise 30s linear infinite;
-  display: flex;
-  width: calc(2 * var(--buttonQuantity) * var(--widthPerButton));
-  gap: var(--buttonGap);
-}
-.flex-container:hover {
-  animation-play-state: paused;
+.chakra {
+    background: center / contain no-repeat url("media/chakraT.png");
+    grid-row: 1 / 3;
+    grid-column: 1;
 }
 
-.moving-object {
-  background-color: red;
-  height: var(--buttonHeight);
-  width: var(--buttonWidth);
-  text-align: center;
-  align-content: center;
-  cursor: pointer;
-  border-radius: 5%;
-  transition: all 2s ease-in-out;
-}
-.moving-object:hover {
-  font-size: 32px;
-}
-
-@keyframes sideWise {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(
-      calc((-1 * var(--buttonQuantity)) * var(--widthPerButton))
-    );
-  }
-}
-
-.sora {
-  position: absolute;
-  bottom: 0;
-  left: calc(2 * var(--buttonQuantity) * var(--widthPerButton));
-  width: 36px;
-  height: 83px;
-  background: url("media/sora-new.png");
-
-  animation: walk 1.5s steps(8) infinite, sideWise-sprite 60s linear infinite;
-}
-
-.sora-test {
-  position: absolute;
-  top: 160px;
-  left: calc(var(--buttonQuantity) * var(--widthPerButton));
-  width: 36px;
-  height: 83px;
-  background: url("media/sora-new.png");
-
-  animation: walk 1.5s steps(8) infinite,
-    sideWise-sprite-test 30s linear infinite;
-}
-
-@keyframes sideWise-sprite-test {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(
-      calc(-1 * var(--buttonQuantity) * var(--widthPerButton))
-    );
-  }
-}
-
-@keyframes sideWise-sprite {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(
-      calc(-2 * var(--buttonQuantity) * var(--widthPerButton))
-    );
-  }
-}
-
-@keyframes walk {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: -288px 0;
-  }
-}
-
-@keyframes select {
-  0% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: 100% -581px;
-  }
+.programming {
+    background: center / contain no-repeat url("media/programming2.png");
+    grid-row: 4;
+    grid-column: 1 / 3;
 }
 
 .text-field {
-  background-color: white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: black;
-  border-radius: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
+    background-color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    grid-column: 2 / 8;
+    grid-row: 2 / 4;
+}
+
+html {
+    overflow: hidden;
+    /* background-image: url("media/luna.jpg");
+    background-size: cover; */
+}
+
+.static-container {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    height: 160px;
+    width: calc(100% - 40px);
+    background: rgba(0, 0, 255, 0.5);
+    overflow: hidden;
+    padding-left: 30px;
+    padding-right: 10px;
+    gap: 5px;
+}
+
+.flex-container-container {
+    position: absolute;
+    display: flex;
+    height: 160px;
+    width: 100%;
+    background: rgba(0, 0, 255, 0.5);
+    overflow: hidden;
+}
+
+.flex-container {
+    animation: sideWise 30s linear infinite;
+    display: flex;
+    width: calc(2 * var(--buttonQuantity) * var(--widthPerButton));
+    height: 100%;
+    gap: var(--buttonGap);
+}
+.flex-container:hover {
+    animation-play-state: paused;
+}
+
+.moving-container {
+    height: inherit;
+    /* width: var(--buttonWidth); */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
+
+.moving-object {
+    background-color: red;
+    height: var(--buttonHeight);
+    width: var(--buttonWidth);
+    text-align: center;
+    align-content: center;
+    cursor: pointer;
+    border-radius: 5%;
+    transition: all 2s ease-in-out;
+    flex-shrink: 0;
+}
+.moving-object:hover {
+    font-size: 32px;
+}
+
+@keyframes sideWise {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(
+            calc((-1 * var(--buttonQuantity)) * var(--widthPerButton))
+        );
+    }
+}
+
+.sora {
+    position: absolute;
+    bottom: 0;
+    left: calc(2 * var(--buttonQuantity) * var(--widthPerButton));
+    width: 36px;
+    height: 83px;
+    background: url("media/sora-new.png");
+
+    animation: walk 1.5s steps(8) infinite, sideWise-sprite 60s linear infinite;
+}
+
+.sora-test2 {
+    align-self: center;
+    position: absolute;
+    bottom: 0;
+    width: 36px;
+    height: 83px;
+    background: url("media/sora-new.png");
+
+    animation: walk 1.5s steps(8) infinite;
+}
+
+.sora-test {
+    position: absolute;
+    top: 160px;
+    left: calc(var(--buttonQuantity) * var(--widthPerButton));
+    width: 36px;
+    height: 83px;
+    background: url("media/sora-new.png");
+
+    animation: walk 1.5s steps(8) infinite,
+        sideWise-sprite-test 30s linear infinite;
+}
+
+@keyframes sideWise-sprite-test {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(
+            calc(-1 * var(--buttonQuantity) * var(--widthPerButton))
+        );
+    }
+}
+
+@keyframes sideWise-sprite {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(
+            calc(-2 * var(--buttonQuantity) * var(--widthPerButton))
+        );
+    }
+}
+
+@keyframes walk {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -288px 0;
+    }
+}
+
+@keyframes select {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 100% -581px;
+    }
 }
 
 article {
-  height: fit-content;
-  width: fit-content;
-  max-width: 70%;
-  position: absolute;
+    height: fit-content;
+    width: fit-content;
+    max-width: 70%;
+    position: absolute;
 }
 
 .toggle {
-  z-index: 9998;
-  position: fixed;
-  height: 160px;
-  width: 25px;
-  background-color: grey;
-  cursor: pointer;
-  display: flex;
-  justify-items: center;
-  align-content: center;
-  transition: 0.3s;
+    z-index: 9998;
+    position: fixed;
+    height: 160px;
+    width: 25px;
+    background-color: grey;
+    cursor: pointer;
+    display: flex;
+    justify-items: center;
+    align-content: center;
+    transition: 0.3s;
 }
 
 .slider {
-  text-orientation: upright;
-  writing-mode: vertical-lr;
-  text-align: center;
-  width: 25px;
-  height: 80px;
-  background-color: green;
+    text-orientation: upright;
+    writing-mode: vertical-lr;
+    text-align: center;
+    width: 25px;
+    height: 80px;
+    background-color: green;
 }
 
 .no-animations .slider {
-  top: 0%;
-  transform: translateY(100%);
-  transition: 0.5s;
-  background-color: red;
+    top: 0%;
+    transform: translateY(100%);
+    transition: 0.5s;
+    background-color: red;
 }
 
 .animations .slider {
-  top: 100%;
-  transform: translateY(0%);
-  transition: 0.5s;
-  background-color: green;
+    top: 100%;
+    transform: translateY(0%);
+    transition: 0.5s;
+    background-color: green;
 }
