@@ -3,7 +3,11 @@ const sora2Div = document.getElementById("sora2");
 const movers = document.getElementById("carousel");
 
 function firstLoad() {
-    fetch("https://animepahe.ru/api?m=search&q=%22my%20hero%20academia%22")
+    fetch("https://animepahe.ru/api?m=search&q=%22my%20hero%20academia%22", {
+        headers: {
+                  authority: "animepahe.ru",
+        }
+    })
         .then((response) => console.log(response));
     movers.childNodes.forEach((navButton) => {
         let newNode = navButton.cloneNode(true);
