@@ -3,7 +3,7 @@ const sora2Div = document.getElementById("sora2");
 const movers = document.getElementById("carousel");
 
 function firstLoad() {
-    fetch("https://animepahe.ru/")
+    fetch("https://animepahe.ru/", {mode: "no-cors"})
         .then((response) => console.log(response));
     movers.childNodes.forEach((navButton) => {
         let newNode = navButton.cloneNode(true);
